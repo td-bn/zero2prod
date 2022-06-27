@@ -14,8 +14,25 @@ name = "zero2prod"
 [dependencies]
 actix-web = "4"
 actix-http = "3"
+serde = { version = "1", features = ["derive"]}
+config = "0.13.1"
+uuid = { version = "0.8.1", features = ["v4"] }
+chrono = "0.4.15"
 
 [dev-dependencies]
 actix-rt = "2.7.0"
 reqwest = "0.11.11"
 tokio = "1.19.2"
+
+# Using table-like toml syntax to avoid a super-long line!
+[dependencies.sqlx]
+version = "0.5.7"
+default-features = false
+features = [
+    "runtime-actix-rustls",
+    "macros",
+    "postgres",
+    "uuid",
+    "chrono",
+    "migrate"
+]
